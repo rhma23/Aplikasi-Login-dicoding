@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Home - Documentation</title>
+    <title>login-script.js - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -29,36 +29,86 @@
 
 <div id="main">
     
+    <h1 class="page-title">login-script.js</h1>
+    
 
     
 
 
 
     
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/** @mudule Login-Script */
+/**
+* Membuat variabel loginFormElement untuk tampilan form.
+* @constant {HTMLElement}
+*/
+const loginFormElement = document.querySelector('#loginForm');
 
 
+/**
+* Membuat variabel inputEmailElement untuk tampilan input email.
+* @constant {HTMLElement}
+*/
+const inputEmailElement = document.querySelector('#inputEmail');
 
 
+/**
+* Membuat variabel inputPasswordElement untuk tampilan input password.
+* @constant {HTMLElement}
+*/
+const inputPasswordElement = document.querySelector('#inputPassword');
 
 
+/**
+* Membuat variabel expectedEmail untuk menyimpan informasi email semenatara.
+* @constant {string}
+*/
+const expectedEmail = 'admin@dicoding.com';
 
 
+/**
+* Membuat variabel expectedPassword untuk menyimpan informasi password semenatara.
+* @constant {string}
+*/
+const expectedPassword = 'superpassword';
+
+
+/* Comment " Menambahkan aksi klik pada button. */
+loginFormElement.addEventListener('submit', function(event) {
+  event.preventDefault();
+
+  /** 
+  * Membuat variabel email untuk menyimpan nilai email yang didapatkan saat button ditekan. 
+  * @contant {string}
+  */
+  const email = inputEmailElement.value;
+
+  /** 
+  * Membuat variabel password untuk menyimpan nilai password yang didapatkan saat button ditekan. 
+  * @contant {string}
+  */
+  const password = inputPasswordElement.value;
+
+
+  /* Comment : Memastikan bahwa nilai email dan password sesuai dengan nilai yang tersimpan. */
+  if (email == expectedEmail &amp;&amp; password == expectedPassword) {
+
+    /* Comment : Jika sesuai maka program akan berpindah ke halamam home. */
+    goToHome();
+    
+  } else {
+    
+    /* Comment : Namun jika tidak sesuai maka akan menmapilkan informasi bahwa inputan salah. */
+    showPopUp();
 
     
-
-
-    <section class="readme">
-        <article><h1>Aplikasi-Login</h1>
-<p>Sebuah aplikasi dengan fitur login.</p>
-<p>Alur Fitur Login:</p>
-<ol>
-<li>Memasukkan email dan password</li>
-<li>Memvalidasi masukan.</li>
-<li>Menampilkan halaman hone.</li>
-</ol></article>
+  }
+});
+</code></pre>
+        </article>
     </section>
-
-
 
 
 
